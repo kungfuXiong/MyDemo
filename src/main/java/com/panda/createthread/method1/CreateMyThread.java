@@ -1,6 +1,6 @@
-package com.panda.createthread;
+package com.panda.createthread.method1;
 
-public class CreateThread {
+public class CreateMyThread {
     public static void main(String[] args) {
         System.out.println("现在所处的为主线程");
         //创建子线程
