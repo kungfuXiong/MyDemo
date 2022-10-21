@@ -1,29 +1,22 @@
 package com.panda.createthread.automic;
 
-public class test {
-    static class myInt {
-        int num;
-        /*
-        i++操作分为3step，step1：读i;step2:自增;step2:赋值
-         */
-        public int getNum() {
-            return num++;
-        }
-    }
+import java.util.concurrent.atomic.AtomicInteger;
 
+public class test2 {
     public static void main(String[] args) {
-         final myInt num = new myInt();
-
+        final AtomicInteger atomicInteger = new AtomicInteger(0);
         for (int i = 0; i < 2; i++) {
             new Thread(new Runnable() {
                 public void run() {
                     while (true){
-                        System.out.println(Thread.currentThread().getName()+" "+num.getNum());
+
+                        int andIncrement = atomicInteger.getAndIncrement();
                         try {
                             Thread.sleep(1000);
                         } catch (InterruptedException e) {
                             throw new RuntimeException(e);
                         }
+                        System.out.println(Thread.currentThread().getName()+" "+ andIncrement);
                     }
                 }
             }).start();
