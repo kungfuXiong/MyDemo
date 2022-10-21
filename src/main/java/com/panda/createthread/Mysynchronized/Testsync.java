@@ -9,6 +9,7 @@ public class Testsync {
         MyThread5 myThread3 = new MyThread5(xiongl);
         MyThread5 myThread4 = new MyThread5(xiongl);
         MyThread5 myThread5 = new MyThread5(xiongl);
+        MyThread5 myThread6 = new MyThread5(xiongl);
 
 
         myThread1.start();
@@ -16,6 +17,7 @@ public class Testsync {
         myThread3.start();
         myThread4.start();
         myThread5.start();
+        myThread6.start();
 
     }
 }
