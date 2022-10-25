@@ -32,20 +32,14 @@ public class Account {
 
     public void withdraw(double money) {
         synchronized (o) {
-//        synchronized (name) {
-//        synchronized (this) {
             double before = this.accountNo;
-            if (before<500){
+            if (before < 500) {
                 System.out.println("余额不足");
-            }else {
+            } else {
                 double after = before - money;
                 this.setAccountNo(after);
+                System.out.println(Thread.currentThread().getName() + this.getName() + "取款:" + money + ",余额为" + this.getAccountNo());
             }
-//            try {
-//                Thread.sleep(1000);
-//            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
-//            }
         }
     }
 
