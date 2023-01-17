@@ -6,6 +6,12 @@ public class Account {
     private String name;
     Object o = new Object();
 
+    public  static  int num = 1;
+
+    public synchronized static void out(){
+        System.out.println(Thread.currentThread().getName()+":  "+num++);
+    }
+
     public Account() {
     }
 
