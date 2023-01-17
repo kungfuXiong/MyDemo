@@ -1,11 +1,10 @@
 package com.panda.quartzDemo.triggers;
 
 
-import com.panda.quartzDemo.jobs.HellloJob;
+import com.panda.quartzDemo.jobs.HellloJobData;
+import com.panda.quartzDemo.jobs.HellloJobDataSet;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
-
-import java.util.concurrent.TimeUnit;
 
 /**
  * SimpleTriggerImpl (org.quartz.impl.triggers)
@@ -13,32 +12,32 @@ import java.util.concurrent.TimeUnit;
  * CalendarIntervalTriggerImpl (org.quartz.impl.triggers)
  * DailyTimeIntervalTriggerImpl (org.quartz.impl.triggers)
  */
-public class _03_CronTriggerDemo {
+public class _05_JobDataSet {
     public static void main(String[] args) {
 
         try {
             Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
             scheduler.start();
 
-            JobDetail job = JobBuilder.newJob(HellloJob.class)
+            JobDetail job = JobBuilder.newJob(HellloJobDataSet.class)
+                    .usingJobData("param","距离除夕还有：")
                     .withIdentity("cronJob", "xiongbl")
                     .build();
 
             Trigger trigger = TriggerBuilder.newTrigger()
                     .withIdentity("cronTrigger", "xiongbl")
+                    .usingJobData("param","距离下班还有：")
                     .startNow()
                     .withSchedule(
-                            CronScheduleBuilder.cronSchedule("1-10 * * * * ? *")
+                            CronScheduleBuilder.cronSchedule("* * * * * ? *")
                     ).build();
 
             scheduler.scheduleJob(job,trigger);
 
-            TimeUnit.MINUTES.sleep(2);
+//            TimeUnit.MINUTES.sleep(2);
 
-            scheduler.shutdown();
+//            scheduler.shutdown();
         } catch (SchedulerException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
