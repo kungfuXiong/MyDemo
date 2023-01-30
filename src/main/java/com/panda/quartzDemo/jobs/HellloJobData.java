@@ -12,7 +12,7 @@ import java.util.StringJoiner;
 
 public class HellloJobData implements Job {
     public static  final String SPRING_FESTIVAL = "2023-01-21 00:00:00";
-    public static  final String XIA_BAN = "2023-01-17 17:30:00";
+    public static  final String XIA_BAN = "2023-01-18 17:30:00";
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
         Trigger trigger = jobExecutionContext.getTrigger();
         JobDetail jobDetail = jobExecutionContext.getJobDetail();

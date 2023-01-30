@@ -1,12 +1,10 @@
 package com.panda.quartzDemo.triggers;
 
 
-import com.panda.quartzDemo.jobs.HellloJob;
+
 import com.panda.quartzDemo.jobs.HellloJobData;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
-
-import java.util.concurrent.TimeUnit;
 
 /**
  * SimpleTriggerImpl (org.quartz.impl.triggers)

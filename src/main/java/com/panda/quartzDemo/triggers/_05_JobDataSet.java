@@ -27,7 +27,7 @@ public class _05_JobDataSet {
             Trigger trigger = TriggerBuilder.newTrigger()
                     .withIdentity("cronTrigger", "xiongbl")
                     .usingJobData("param","距离下班还有：")
-                    .startNow()
+                    .startNow()//一旦触发就开始执行
                     .withSchedule(
                             CronScheduleBuilder.cronSchedule("* * * * * ? *")
                     ).build();
