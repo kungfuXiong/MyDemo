@@ -2,7 +2,7 @@ package com.panda.designPattern._03_singletonPattern;
 
 public class Singleton_lazy_sync_doubleCheck {
     //无法解决反序列化会破坏单例的问题。
-    private static Singleton_lazy_sync_doubleCheck instance;
+    private static volatile Singleton_lazy_sync_doubleCheck instance;
 
     private Singleton_lazy_sync_doubleCheck() {
     }
