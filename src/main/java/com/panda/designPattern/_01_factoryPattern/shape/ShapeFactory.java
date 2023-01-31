@@ -1,4 +1,4 @@
-package com.panda.designPattern.factoryPattern工厂模式.shape;
+package com.panda.designPattern._01_factoryPattern.shape;
 
 
 import org.apache.commons.lang.StringUtils;

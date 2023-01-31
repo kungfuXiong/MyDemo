@@ -1,9 +1,9 @@
-package com.panda.designPattern.factoryPattern工厂模式;
+package com.panda.designPattern._01_factoryPattern;
 
-import com.panda.designPattern.factoryPattern工厂模式.shape.Shape;
-import com.panda.designPattern.factoryPattern工厂模式.shape.ShapeFactory;
+import com.panda.designPattern._01_factoryPattern.shape.Shape;
+import com.panda.designPattern._01_factoryPattern.shape.ShapeFactory;
 
-public class factoryPattern {
+public class test {
     public static void main(String[] args) {
         ShapeFactory shapeFactory = new ShapeFactory();
 
