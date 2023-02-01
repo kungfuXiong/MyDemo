@@ -1,12 +1,12 @@
 package com.panda.designPattern._04_builderPattern.item.drink;
 
-public class Coke extends Drink{
+public class Pepsi extends Drink{
     public String name() {
-        return "可口可乐";
+        return "百事可乐";
     }
 
     @Override
     public float price() {
-        return 10f;
+        return 10.5f;
     }
 }
