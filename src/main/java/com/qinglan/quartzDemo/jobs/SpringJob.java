@@ -24,7 +24,8 @@ public class SpringJob extends QuartzJobBean {
                 .add("HelloJobDataSet.execute")
                 .add(DFUtil.format(new Date()))
                 .add(Thread.currentThread().getName())
-                .add(helloService.test());
+                .add(helloService.test())
+                .add("栋哥是小猪");
         System.out.println(stringJoiner);
 
     }

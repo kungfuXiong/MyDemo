@@ -4,13 +4,14 @@ package com.qinglan.quartzDemo.triggers;
 import com.qinglan.quartzDemo.jobs.SpringJob;
 import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
 import static org.quartz.JobBuilder.newJob;
 import static org.quartz.TriggerBuilder.newTrigger;
 
-//@Component
+@Component
 @DisallowConcurrentExecution
 @PersistJobDataAfterExecution
 public class _06_SpringQuartz {
@@ -23,7 +24,7 @@ public class _06_SpringQuartz {
 
         Trigger trigger = newTrigger().startNow().withSchedule(
 
-                CronScheduleBuilder.cronSchedule("* * * * * ? *")
+                CronScheduleBuilder.cronSchedule("0/5 * * * * ? *")
         )
         .build();
 
