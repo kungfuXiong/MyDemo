@@ -14,3 +14,6 @@ spring:
         quartz:
           threadPool:
             threadCount: 3
+
+logging:
+  config: classpath:log4j.properties
