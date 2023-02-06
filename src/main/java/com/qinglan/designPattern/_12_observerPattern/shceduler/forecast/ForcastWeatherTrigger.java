@@ -1,7 +1,8 @@
-package com.qinglan.quartzDemo.triggers;
+package com.qinglan.designPattern._12_observerPattern.shceduler.forecast;
 
 
-import com.qinglan.quartzDemo.jobs.SpringJob;
+
+import com.qinglan.designPattern._12_observerPattern.shceduler.immediate.WeatherJob;
 import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -11,20 +12,21 @@ import javax.annotation.PostConstruct;
 import static org.quartz.JobBuilder.newJob;
 import static org.quartz.TriggerBuilder.newTrigger;
 
-//@Component
+@Component
 @DisallowConcurrentExecution
 @PersistJobDataAfterExecution
-public class _06_SpringQuartz {
+public class ForcastWeatherTrigger {
     @Autowired
     Scheduler scheduler;
 
     @PostConstruct
     public void initJob(){
-        JobDetail job = newJob(SpringJob.class).build();
+        JobDetail job = newJob(ForecastWeatherJob.class).build();
 
         Trigger trigger = newTrigger().startNow().withSchedule(
 
-                CronScheduleBuilder.cronSchedule("0/5 * * * * ? *")
+                //0 0 8,12,18 * * ?
+                CronScheduleBuilder.cronSchedule("0 0 8 * * ?")
         )
         .build();
 

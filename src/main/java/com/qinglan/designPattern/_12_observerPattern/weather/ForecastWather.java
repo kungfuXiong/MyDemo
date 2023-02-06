@@ -1,24 +1,24 @@
-package com.qinglan.designPattern._12_observerPattern;
+package com.qinglan.designPattern._12_observerPattern.weather;
 
+import com.qinglan.designPattern._12_observerPattern.utils.ForecastWeatherUtil;
 import com.qinglan.utils.DingdingUtil;
 
 import java.util.ArrayList;
 
-public class NanJingCity extends WeatherSubscriber{
+public class ForecastWather extends WeatherSubscriber {
     String address = "";
 
-
     void setWeather(String address) {
-        ArrayList<String> mobile = new ArrayList<>();
-        mobile.add("18651883652");
-        mobile.add("18651881013");
-        mobile.add("18651881259");
-        mobile.add("18651882100");
         try {
-            DingdingUtil.sendTextMsg(getWeather(address), mobile,new ArrayList<String>(),true);
+            DingdingUtil.sendTextMsg(getWeather(address),new ArrayList<String>(),new ArrayList<String>(),true);
         } catch (Exception e) {
             e.getMessage();
         }
+    }
+
+    @Override
+    String getWeather(String address) {
+        return ForecastWeatherUtil.returnWeather(address);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class NanJingCity extends WeatherSubscriber{
         this.address = address;
     }
 
-    public NanJingCity(String address) {
+    public ForecastWather(String address) {
         super(address);
         this.address = address;
     }

@@ -5,7 +5,7 @@ import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
 
-@Service
+//@Service
 public class HelloService {
 
     @Autowired(required = false)

@@ -1,4 +1,6 @@
-package com.qinglan.designPattern._12_observerPattern;
+package com.qinglan.designPattern._12_observerPattern.weather;
+
+import com.qinglan.designPattern._12_observerPattern.weather.WeatherSubscriber;
 
 import java.util.ArrayList;
 
