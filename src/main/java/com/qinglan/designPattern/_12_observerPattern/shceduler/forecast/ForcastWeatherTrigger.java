@@ -25,8 +25,8 @@ public class ForcastWeatherTrigger {
 
         Trigger trigger = newTrigger().startNow().withSchedule(
 
-                //0 0 8,12,18 * * ?
-                CronScheduleBuilder.cronSchedule("0 0 8 * * ?")
+                //0 0 8 * * ?
+                CronScheduleBuilder.cronSchedule("0 30 7 * * ?")
         )
         .build();
 

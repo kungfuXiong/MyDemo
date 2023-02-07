@@ -24,8 +24,8 @@ public class ImmediateWeatherTrigger {
 
         Trigger trigger = newTrigger().startNow().withSchedule(
 
-                //0 0 8,12,18 * * ?
-                CronScheduleBuilder.cronSchedule("* * 10,12,14,16,18 * * ? *")
+                //* * 10,12,14,16,18 * * ?
+                CronScheduleBuilder.cronSchedule("0 0 10,12,14,16,18 * * ?")
         )
         .build();
 

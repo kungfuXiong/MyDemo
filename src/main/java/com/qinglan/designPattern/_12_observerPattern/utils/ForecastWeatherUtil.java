@@ -17,7 +17,7 @@ public class ForecastWeatherUtil {
         JSONObject jsonObject = JSONObject.parseObject(s);
         JSONArray daily = jsonObject.getJSONArray("daily");
         for (int i = 0; i < 3; i++) {
-            weather=weather+JsonParseUtil.parse(daily.getJSONObject(i))+"\n";
+            weather=weather+JsonParseUtil.parse(daily.getJSONObject(i));
         }
         return weather;
     }
