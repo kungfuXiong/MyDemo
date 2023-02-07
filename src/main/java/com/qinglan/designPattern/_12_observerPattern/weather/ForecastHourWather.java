@@ -5,18 +5,17 @@ import com.qinglan.utils.DingdingUtil;
 
 import java.util.ArrayList;
 
-public class ImmediateWeather extends WeatherSubscriber {
+public class ForecastHourWather extends WeatherSubscriber {
     String address = "";
 
-
     public void setWeather(String address) {
-        ArrayList<String> mobile = new ArrayList<>();
         try {
-            DingdingUtil.sendTextMsg(WeatherUtil.returnImmedWeather(address), new ArrayList<String>(), new ArrayList<String>(), true);
+            DingdingUtil.sendTextMsg(WeatherUtil.returnHourWeather(address), new ArrayList<String>(), new ArrayList<String>(), true);
         } catch (Exception e) {
             e.getMessage();
         }
     }
+
 
     @Override
     public String getAddress() {
@@ -29,7 +28,7 @@ public class ImmediateWeather extends WeatherSubscriber {
         this.address = address;
     }
 
-    public ImmediateWeather(String address) {
+    public ForecastHourWather(String address) {
         super(address);
         this.address = address;
     }

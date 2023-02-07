@@ -24,3 +24,13 @@ server:
   port: 9999
   servlet:
     context-path: /qinglan
+
+Weather:
+  key: a6408cf554a14f3286d4fa3748eb8ce1
+  url24h: https://devapi.qweather.com/v7/weather/24h
+  url3d: https://devapi.qweather.com/v7/weather/3d
+  urlNow: https://devapi.qweather.com/v7/weather/now
+
+DingDing:
+  token: SECf887ae627e5b965046d9bd7f5b112df364654b7b4d1eb1e9f8de62ed010a6b84
+  url: https://oapi.dingtalk.com/robot/send?access_token=d1ea0edca327778da11e2582d3a3b8fda0b91b49e22c28d433b6a22395633882

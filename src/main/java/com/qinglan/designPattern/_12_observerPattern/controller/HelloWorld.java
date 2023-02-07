@@ -1,4 +1,4 @@
-package com.qinglan.controller;
+package com.qinglan.designPattern._12_observerPattern.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,7 +1,6 @@
 package com.qinglan.designPattern._12_observerPattern.shceduler.immediate;
 
 import com.qinglan.designPattern._12_observerPattern.weather.ImmediateWeather;
-import com.qinglan.designPattern._12_observerPattern.weather.ForecastWather;
 import com.qinglan.designPattern._12_observerPattern.weather.WeatherPush;
 import org.springframework.stereotype.Service;
 

@@ -2,17 +2,44 @@ package com.qinglan.utils;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.codec.binary.Base64;
-import org.apache.http.HttpRequest;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 钉钉发消息工具类，包括文本，markdown等类型
+ * @author 青岚
+ * @date 2023年2月7日
+ */
 public class DingdingUtil {
+
+    @Value("${DingDing.token}")
+    static String token = "";
+
+    @Value("${DingDing.url}")
+    static String url = "";
+
+    /**
+     * errcode处理
+     *
+     * @param resultStr
+     */
+    private static void handleErrorCode(String resultStr) {
+        if (StringUtils.isEmpty(resultStr)) {
+            throw new RuntimeException("返回结果为空");
+        }
+        JSONObject jsonObject = JSONObject.parseObject(resultStr);
+        if (310000 == jsonObject.getLong("errcode")) {
+            throw new RuntimeException("keywords not in content");
+        }
+    }
+
     /**
      * 获取请求url
      *
@@ -46,6 +73,7 @@ public class DingdingUtil {
         String reqStr = buildReqTextStr(content, isAtAll, mobileList, userIdList);
         // 推送消息（http请求）
         String result = HttpClientUtil.doPostJson(dingUrl, reqStr);
+        handleErrorCode(result);
         System.out.println("钉钉请求发送成功，返回结果：" + result);
     }
 
@@ -92,6 +120,8 @@ public class DingdingUtil {
 
         // 推送消息（http请求）
         String result = HttpClientUtil.doPostJson(dingUrl, reqStr);
+
+        handleErrorCode(result);
     }
 
     /**

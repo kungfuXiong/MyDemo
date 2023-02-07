@@ -1,24 +1,19 @@
 package com.qinglan.designPattern._12_observerPattern.weather;
 
-import com.qinglan.designPattern._12_observerPattern.utils.ForecastWeatherUtil;
+import com.qinglan.designPattern._12_observerPattern.utils.WeatherUtil;
 import com.qinglan.utils.DingdingUtil;
 
 import java.util.ArrayList;
 
-public class ForecastWather extends WeatherSubscriber {
+public class ForecastWeather extends WeatherSubscriber {
     String address = "";
 
-    void setWeather(String address) {
+    public void setWeather(String address) {
         try {
-            DingdingUtil.sendTextMsg(getWeather(address),new ArrayList<String>(),new ArrayList<String>(),true);
+            DingdingUtil.sendMarkdownMsg("请查收建邺区今天天气:",WeatherUtil.returnDayWeather(address),true,new ArrayList<String>(),new ArrayList<String>());
         } catch (Exception e) {
             e.getMessage();
         }
-    }
-
-    @Override
-    String getWeather(String address) {
-        return ForecastWeatherUtil.returnWeather(address);
     }
 
     @Override
@@ -32,7 +27,7 @@ public class ForecastWather extends WeatherSubscriber {
         this.address = address;
     }
 
-    public ForecastWather(String address) {
+    public ForecastWeather(String address) {
         super(address);
         this.address = address;
     }
