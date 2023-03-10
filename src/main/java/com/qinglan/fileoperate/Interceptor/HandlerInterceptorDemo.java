@@ -20,21 +20,19 @@ public class HandlerInterceptorDemo implements HandlerInterceptor {
         NeedInterceptor annotation = method.getAnnotation(NeedInterceptor.class);
         if (annotation != null) {
             System.out.println("前置拦截器" + request.getRemoteAddr());
+            return  true;
         }
-
-
-        return HandlerInterceptor.super.preHandle(request, response, handler);
+        response.setStatus(404);
+        return false;
     }
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         System.out.println("后置拦截器" + response.getStatus());
-        HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
     }
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         System.out.println("完成后拦截器" + response.getContentType());
-        HandlerInterceptor.super.afterCompletion(request, response, handler, ex);
     }
 }
