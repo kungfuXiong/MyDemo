@@ -1,12 +1,11 @@
 package com.xbl.juc;
 
 import lombok.extern.slf4j.Slf4j;
-import lombok.var;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class test03 {
+public class SyncVsReentrantLock {
 
     public static void main(String[] args) {
 

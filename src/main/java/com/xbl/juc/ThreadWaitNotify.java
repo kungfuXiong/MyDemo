@@ -1,6 +1,6 @@
 package com.xbl.juc;
 
-public class test01 {
+public class ThreadWaitNotify {
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -47,7 +47,7 @@ public class test01 {
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
-                    System.out.println("准备zhong");
+                    System.out.println("准备中");
                     try {
                         Thread.sleep(5000);
                     } catch (InterruptedException e) {

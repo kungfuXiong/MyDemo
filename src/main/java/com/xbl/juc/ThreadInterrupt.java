@@ -1,8 +1,7 @@
 package com.xbl.juc;
 import java.util.Scanner;
-import java.util.concurrent.locks.Lock;
 
-public class test {
+public class ThreadInterrupt {
     public static void main(String[] args) throws InterruptedException {
         //线程0 用于执行循环输出
         T t = new T();

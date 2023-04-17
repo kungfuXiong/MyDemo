@@ -1,13 +1,12 @@
 package com.xbl.juc;
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 @Slf4j
-public class test04 {
+public class RreentrantLock_More {
 
     private static int num = 0;
     private static ReentrantLock reentrantLock = new ReentrantLock();
