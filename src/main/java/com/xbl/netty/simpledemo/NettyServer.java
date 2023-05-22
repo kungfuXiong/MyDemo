@@ -1,10 +1,7 @@
 package com.xbl.netty.simpledemo;
 
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.EventLoopGroup;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
@@ -36,15 +33,25 @@ public class NettyServer {
                                     ch.pipeline().addLast(new NettyServerHandler());
                                 }
                             }
-                    );//给workerGroup的enventloop对象的管道设置处理器
+                    );//给workerGroup的eventLoop对象的管道设置处理器
             System.out.println("......服务器 is ready ......");
 
             //绑定一个端口并且同步，生成一个ChannelFuture对象
             //同时启动服务器
             ChannelFuture channelFuture = serverBootstrap.bind(6669).sync();
 
+            channelFuture.addListener(new ChannelFutureListener() {
+                @Override
+                public void operationComplete(ChannelFuture future) throws Exception {
+                    if (future.isSuccess()){
+                        System.out.println("监听成功");
+                    }else {
+                        System.out.println("监听失败");
+                    }
+                }
+            });
             //对关闭通道进行监听
-            channelFuture.channel().closeFuture().sync();
+            ChannelFuture sync = channelFuture.channel().closeFuture().sync();
         } finally {
             //优雅的关闭
             bossGroup.shutdownGracefully();
